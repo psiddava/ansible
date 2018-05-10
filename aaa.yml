@@ -1,0 +1,14 @@
+---
+  - name: learing loop
+    yum: pkg={{ item }} state=installed
+    with_items:
+    - vim
+    - httpd
+  - name: ensure apache is running
+    service: name=httpd state=started
+  - name: Ansible Template Example
+    template: src=index.j2 dest=/var/www/html/index.html
+  - name: touch files for os
+    file: path=/opt/phani.txt state=touch
+    when:
+      - ansible_userspace_architecture == "x86_64
