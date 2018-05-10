@@ -1,0 +1,9 @@
+---
+- hosts: test
+  tasks:
+  - name: Ansible register variable basic example
+    shell: "find /tmp/*.*"
+    register: find_output
+  - debug:
+    var: find_output
+...

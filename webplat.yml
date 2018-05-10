@@ -1,0 +1,18 @@
+---
+- hosts: db
+  vars:
+    variable_to_be_replaced: 'Hello chandra'
+    inline_variable: 'hello again'
+  tasks:
+#    - name: Ansible Template Example
+#      template: src=/root/phani.j2 dest=/var/www/html/index.html
+    - name: learing loop
+      yum: pkg={{ item }} state=installed 
+      with_items:
+      - vim
+      - httpd
+    - name: touch files for os
+      file: path=/opt/phani.txt state=touch
+      when:
+        - ansible_userspace_architecture == "x86_64"
+...

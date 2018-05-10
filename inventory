@@ -1,0 +1,10 @@
+[db]
+172.17.0.3
+[test]
+172.17.0.4
+172.17.0.2
+
+[db:vars] 
+username=phani
+login_password=phani
+
